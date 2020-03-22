@@ -1,0 +1,927 @@
+{
+	"info": {
+		"_postman_id": "3753a4ca-3b83-4ac2-b55b-680ca91f9d41",
+		"name": "studentbook",
+		"description": "API web services.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "main",
+			"item": [
+				{
+					"name": "Shows API index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Stores a user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"email\": \"test@gmail.com\",\n    \"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/registration",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tries Login as an user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"email\": \"test1@gmail.com\",\n    \"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjI2OTU3NzIsIm5iZiI6MTU2MjY5NTc3MiwianRpIjoiYTUxODgyNjUtODM3MS00YjEwLWFkYjMtMDk2ZTlhNGNjMGZjIiwiZXhwIjoxNTY1Mjg3NzcyLCJpZGVudGl0eSI6InRlc3QiLCJ0eXBlIjoicmVmcmVzaCJ9.W5F_8wn-E5tqaJ8fapyQeGdu90kFWhdBj6CDUvOPSng",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8080/token/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "departments",
+			"item": [
+				{
+					"name": "Deletes all the departments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?remove_all=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "remove_all",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores a test department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Department name\",\n    \"office_number\": 1,\n    \"office_phone\": \"2548-8855877\",\n    \"college\": \"Test random College name\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?department_code=110000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores a department using the data sent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Department name 1\",\n    \"office_number\": 12,\n    \"office_phone\": \"9893-2676323\",\n    \"college\": \"College name 1\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores multiple departments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?save_faked_departments=3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "save_faked_departments",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all saved departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves a department using the index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?department_code=110000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates the department information",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Department name 2\",\n    \"office_number\": 5,\n    \"office_phone\": \"8923-983292\",\n    \"college\": \"College name 2\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?department_code=110000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a department using the index",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/departments?department_code=110000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "Deletes all the students",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?remove_all=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "remove_all",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores a test student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"social_security_number\": \"100000000\",\n    \"first_name\": \"Person\",\n    \"last_name\": \"name 1\",\n    \"date_of_birth\": \"1998-11-12\",\n    \"sex\": \"M\",\n    \"current_address\": \"Current address 1\",\n    \"current_phone_number\": \"90903223\",\n    \"permanent_address\": \"Permanent address 1\",\n    \"permanent_phone\": \"90909283\",\n    \"class\": \"class name 1\",\n    \"city\": \"city 1\",\n    \"state\": \"state 1\",\n    \"zip_code\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?student_number=100000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "student_number",
+									"value": "100000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores a student using the data sent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"social_security_number\": \"787832\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Chen\",\n    \"date_of_birth\": \"1998-11-12\",\n    \"sex\": \"M\",\n    \"current_address\": \"Current address 1\",\n    \"current_phone_number\": \"90903223\",\n    \"permanent_address\": \"Permanent address 1\",\n    \"permanent_phone\": \"90909283\",\n    \"class\": \"class name 1\",\n    \"city\": \"city 1\",\n    \"state\": \"state 1\",\n    \"zip_code\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/students",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores a student and associates to a deparment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"social_security_number\": 32989834,\n    \"first_name\": \"Peter\",\n    \"last_name\": \"Smith\",\n    \"date_of_birth\": \"1992-06-01\",\n    \"sex\": \"M\",\n    \"current_address\": \"Current address 2\",\n    \"current_phone_number\": \"9893847\",\n    \"permanent_address\": \"Permanent address 2\",\n    \"permanent_phone\": \"90945783\",\n    \"class\": \"class name 2\",\n    \"city\": \"city 1\",\n    \"state\": \"state 1\",\n    \"zip_code\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?department_code=110000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores multiple students",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?save_faked_students=15",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "save_faked_students",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all saved students",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjI2OTc3MDUsIm5iZiI6MTU2MjY5NzcwNSwianRpIjoiMjJhYjIxYTItZTkyMy00MDA4LTg0MzQtMjZiYjNiNTE2NGRhIiwiZXhwIjoxNTYyNjk4NjA1LCJpZGVudGl0eSI6InRlc3QiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.0GS04SPIxmRjxhLeE9XfKK4FDbKc_l1za0HoWhonEVY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves a student using the index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?student_number=100000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "student_number",
+									"value": "100000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters saved students using dates, name and records limit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?min_date=1998-01-01&max_date=2001-12-31&name=Person&limit=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "min_date",
+									"value": "1998-01-01"
+								},
+								{
+									"key": "max_date",
+									"value": "2001-12-31"
+								},
+								{
+									"key": "name",
+									"value": "Person"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates the student  information",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"social_security_number\": 90437878,\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"date_of_birth\": \"1995-12-24\",\n    \"sex\": \"M\",\n    \"current_address\": \"Current address 2\",\n    \"current_phone_number\": \"8989843\",\n    \"permanent_address\": \"Permanent address 2\",\n    \"permanent_phone\": \"8909343\",\n    \"class\": \"class name 2\",\n    \"city\": \"city 2\",\n    \"state\": \"state 2\",\n    \"zip_code\": \"2345\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?student_number=100000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "student_number",
+									"value": "100000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates the student's information and the department",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"social_security_number\": 90437878,\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"date_of_birth\": \"1995-12-24\",\n    \"sex\": \"M\",\n    \"current_address\": \"Current address 3\",\n    \"current_phone_number\": \"8989843\",\n    \"permanent_address\": \"Permanent address 3\",\n    \"permanent_phone\": \"8909343\",\n    \"class\": \"class name 3\",\n    \"city\": \"city 3\",\n    \"state\": \"state 3\",\n    \"zip_code\": \"4567\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?student_number=100000000&current_department=532372148&new_department=1156356758",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "student_number",
+									"value": "100000000"
+								},
+								{
+									"key": "current_department",
+									"value": "532372148"
+								},
+								{
+									"key": "new_department",
+									"value": "1156356758"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a student using the index",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/students?student_number=100000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "student_number",
+									"value": "100000000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dec12afa-1288-4987-9c4c-33a95adbd93a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "eebacb80-8b53-4826-ad20-33bf14fbf6b3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "Deletes all the courses",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/courses?remove_all=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "remove_all",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stores multiple courses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8080/courses?department_code=110000000&save_faked_courses=6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "department_code",
+									"value": "110000000"
+								},
+								{
+									"key": "save_faked_courses",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all saved courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/courses",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5982b254-475b-4d4c-a6c3-924718300b80",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0dc3e3b8-7f71-4153-a32a-d6546d29ae8b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
